@@ -35,4 +35,5 @@ if (readFileSync(target, 'utf8') !== raw) {
   console.error('VIDEO.json copy differs from the repository file.');
   process.exit(1);
 }
-console.log(`VIDEO.json copied to ${outputDir} for ${parsed.url}`);
+const videoId = parsed.url.split('/video/')[1]?.split(/[?/]/)[0] ?? 'unknown';
+console.log(`VIDEO.json copied to ${outputDir} for ${parsed.url} (video ${videoId})`);
